@@ -1,0 +1,18 @@
+
+%{
+	#include<stdio.h>
+	int vow=0;
+	int con=0;
+%}
+%%
+[aeiouAEIOU] {vow++;}
+[a-zA-Z] {con++;}
+%%
+int yywrap(){}
+int main()
+{
+	printf("enter string\n");
+	yylex();
+	printf("no of vowels and con: %d\n %d\n",vow,con);
+	return 0;
+}
